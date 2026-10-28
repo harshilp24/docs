@@ -1,0 +1,74 @@
+---
+title: "Insights"
+sidebarTitle: "Insights"
+description: "Build and view dashboards in Tasket Insights. Explore user-scoped and org-wide reporting powered by Cube's creator."
+---
+
+Insights is a reporting experience embedded within Tasket that lets you build and view dashboards using Cube's reporting engine. Instead of switching between separate tools, you can access organisation-wide and personal data visualisations directly from your Tasket navigation.
+
+Insights opens as a standalone application in a new browser tab. It has its own navigation with two sections: **Dashboards**, where you discover and view dashboards created by anyone in your organisation, and **Creator**, where you build new dashboards using Cube's authoring tools.
+
+Dashboard results are scoped to the person viewing them. A single dashboard can be built once and shared across the organisation — each user sees data relevant to their own account rather than the data of the person who created it.
+
+Insights is available to all users within an organisation. In this phase, all dashboards created within the organisation are visible to all members; there is no dashboard-level permissioning.
+
+## When to use Insights
+
+**Track your own work and activity.** If you are a project manager or program manager, you can open a user-scoped dashboard to see your open tasks, your recent activity, or your usage — data that reflects your account specifically, not the whole organisation.
+
+**Monitor adoption and usage across the organisation.** If you are a CXO, program head, or analytics lead, you can view org-scoped dashboards that aggregate data across all teams and users, giving you a picture of how the organisation is working.
+
+**Create a reusable dashboard for the whole team.** If you build a project reporting dashboard in Creator, any colleague in your organisation can open it and see results scoped to their own data. You create it once; everyone gets a personalised view without separate setup.
+
+## How to use Insights
+
+### Opening Insights
+
+Insights is accessible from the Tasket navigation under the **`...`** menu. Clicking the Insights menu item opens the application in a new browser tab. Insights has its own navigation and does not include an account switcher.
+
+### Browsing dashboards
+
+The **Dashboards** section lists all dashboards created by users in your organisation, ordered by most recent. You can only see dashboards belonging to your current organisation — dashboards from another organisation never appear in this list.
+
+If no dashboards have been created yet, the empty state includes a path to Creator so you can build the first one.
+
+### Viewing a dashboard
+
+Click any dashboard in the list to open it. The dashboard runs in your scope: Tasket passes your identity to Cube, and any user-scoped semantic views resolve against your account. You see your data, not the data of the person who created the dashboard.
+
+If you have no applicable data for a dashboard, Cube's no-data state is shown rather than the creator's data.
+
+### Creating dashboards with Creator
+
+The **Creator** section embeds Cube's creator mode. From here you can:
+
+- Create and organise folders
+- Create workbooks and open existing ones
+- Add tabs to a workbook
+- Write SQL or semantic queries and view their results
+- Create charts and visualisations
+- Build complete dashboards
+
+Dashboards you create in Creator automatically appear in the Dashboards section for all users in your organisation. Cube's creator is the authoritative tool for report authoring; Tasket does not add its own dashboard or query builder on top of it.
+
+## FAQ
+
+**Who can see the dashboards I create?** All users in your organisation can see all dashboards created by any member. There is no dashboard-level permission control in this phase.
+
+**Will someone else see my data when they open my dashboard?** No. When another user opens your dashboard, it runs under their identity. They see their own data; your data and permissions are not inherited.
+
+**Can I see dashboards from another organisation I belong to?** No. The dashboard list is scoped to your current organisation only. Dashboards from other organisations do not appear.
+
+**What happens if a dashboard I created is deleted in Cube?** The dashboard is removed from the Tasket list once the metadata refreshes. It will not remain permanently discoverable after deletion.
+
+**Does Insights affect Tasket if Cube is unavailable?** No. If Cube is unavailable, Insights shows a "reporting unavailable" state, but the rest of Tasket continues to work normally.
+
+**What is not included in this version of Insights?** This phase does not include dashboard sharing, dashboard-level permissions, pre-built or ready-made dashboards, or Tasket-native builders for dashboards, queries, or visualisations.
+
+## Troubleshooting
+
+**The dashboard opens but shows no data.** Dashboards are scoped to the viewing user's identity. If you have no data that matches the dashboard's queries, Cube displays an empty or no-data state — this is expected. Check whether the dashboard was built with user-scoped views that depend on data associated with your account.
+
+**The dashboard shows a reporting error instead of loading.** This indicates that signed embedding failed. Try refreshing the page. If the error persists, contact your administrator to verify that your access has not been revoked and that the Cube integration is active.
+
+**A dashboard I expected to see is missing from the list.** Dashboards are listed for your current organisation only. Confirm you are logged into the correct organisation. If the dashboard was recently deleted in Cube, it may have been removed from the list after a metadata refresh.

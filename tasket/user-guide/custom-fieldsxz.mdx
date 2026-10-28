@@ -1,0 +1,205 @@
+---
+title: "Custom Fields"
+sidebarTitle: "Custom Fields"
+---
+
+## Feature overview
+
+Custom fields let a team admin add the details your work depends on, such as a category, a due-by date, or the person responsible for approval, to the tasks in a project. People fill them in as they create a task, so the information sits on the task instead of in descriptions or comments. Because each project has its own fields- an HR service desk, a marketing campaign tracker, and an engineering backlog can each ask for different details.
+
+You set up custom fields in the project's Settings, under Custom fields. Only team admins can see this option. Creating a project does not give you access to its custom fields; access follows your role on the team. A custom field applies only to tasks created after you add it. Tasks that already exist do not gain the new field.
+
+You can choose from nine field types. Most are simple to use. When the right options depend on an earlier choice, use Cascading Single Select. It holds up to three linked levels in one field, and each selection narrows the options at the next level. Instead of one long list that mixes broad and narrow options, people creating a task see only the options that fit beneath their earlier choice. For example, with Country, State, and District as the three levels:
+
+| You select | The next field shows |
+| :-- | :-- |
+| Country: India | State, with the options under India, such as Karnataka |
+| State: Karnataka | District, with the options under Karnataka, such as Bengaluru |
+
+Each level appears as its own field on the task.
+
+## When to use Custom Fields
+
+### 1. Capture extra details on every task
+
+Add a custom field when your team needs the same piece of information on each task in a project.
+
+- **Estimates:** A project lead adds a Number field to record the expected effort for each task, so every new task asks for it at creation.
+- **Deadlines from outside the team:** A coordinator adds a Date field for a customer's requested delivery date, so the date is visible on the task and doesn't get lost in comments.
+- **Ownership beyond the assignee:** A manager adds a Single User Picker field for the approver, so each task names who signs off.
+
+### 2. Capture choices that depend on each other
+
+Use Cascading Single Select when the right options at one level depend on what was chosen at the level above.
+
+- **HR service requests:** An HR team sets up Service > Category Type > Sub-Category Type. An employee raising a request selects Benefits, Health and Wellness, then Insurance, then Medical Insurance Policy Query. The task is categorized precisely without anyone scrolling through every possible combination.
+
+## How to use Custom Fields
+
+### Who can set up custom fields
+
+- **Team admin:** Can see Custom fields in a project's Settings and add or change fields.
+- **Team member:** Can create projects under the team, but cannot see Custom fields in Project Settings. Creating a project does not make you responsible for its settings.
+- **Guest:** Guests cannot create projects and cannot become team admins, so they cannot set up custom fields.
+
+### Open Custom fields
+
+1. Open the project.
+2. Select **Settings**.
+3. Select **Custom fields**, the second option in the project's Settings.
+
+The list shows each field in three columns: **Type**, **Name**, and **Settings**. Type comes first, because the type you choose decides what the Name and Settings columns ask for.
+
+### Field types
+
+Custom fields come in nine types.
+
+| Type | What it holds |
+| :-- | :-- |
+| Single Select List | One value chosen from a list |
+| Multi Select List | One or more values chosen from a list |
+| Cascading Single Select | One value at each of up to three linked levels |
+| Text Field | A line of text |
+| Text Area | A longer block of text |
+| Date | A date |
+| Single User Picker | One person |
+| Multi User Picker | One or more people |
+| Number | A number |
+
+**Choosing between Single Select List and Cascading Single Select:** Use Single Select List when one flat list of options is enough. Use Cascading Single Select when the options at one level depend on what was chosen at the level above, such as State depending on Country.
+
+### Add a field
+
+Choose the field type first, then give the field a name. For most types, the Settings column holds the field's values or options. Cascading Single Select works differently, as described below.
+
+### Set up a Cascading Single Select field
+
+A Cascading Single Select field has two parts: the names of its levels, and the values at each level.
+
+**Name the levels**
+
+A cascading field supports up to three levels. Each level has its own name, and each appears as its own field when someone fills in a task.
+
+1. After choosing **Cascading Single Select** as the type, open the level names pop-up from the Name column.
+2. Enter a name for **Level 1**. Level 1 is required.
+3. Optionally, enter names for **Level 2** and **Level 3**.
+4. Save.
+
+After you save, the Name column shows the names you entered. For example: Level 1 is Service, Level 2 is Category Type, and Level 3 is Sub-Category Type.
+
+You can configure fewer than three levels. If you name only Level 1, only Level 1 appears when someone fills in a task. If you name two levels, only those two appear.
+
+**Add the values**
+
+1. In the Settings column, select **Edit values**. A pop-up opens with an editor for the values.
+2. Type your Level 1 values, one per bullet.
+3. Press **Tab** to indent a bullet and make it a value at the next level down, under the value above it.
+4. Press **Shift+Tab** to move a bullet back out one level.
+5. Save.
+
+The editor works like a standard bulleted list, with these rules:
+
+- Bullets are always on. You cannot delete the bullet itself, only indent or outdent it.
+- You can nest values up to three levels deep.
+- The editor opens at a larger height and scrolls when your list gets long.
+- Before you start typing, the editor shows a light-grey example built from your level names, so the structure is clear. The example disappears when you click into the editor.
+
+The position of each value decides which values appear after it. A value nested under "Insurance" appears as an option only when "Insurance" is selected at the level above.
+
+After you save, the Settings column shows the first few values with an ellipsis and an Edit action, so you can tell values have been added.
+
+The number of nesting levels in your values does not have to match the number of level names. If your values nest deeper than the levels you named, only the levels you named appear when someone fills in a task.
+
+### How to fill in a Cascading Single Select field on a task
+
+When someone creates a task in the project, each level appears as its own field, labeled with its level name. The fields use the same icon as a regular single select field, so people see ordinary fields to fill in, not a special cascading control.
+
+1. Only the first level appears at first. Select a value.
+2. The next level appears, showing only the values that belong under your selection.
+3. Select a value there, and the third level appears in the same way, if you have configured one.
+
+If the value you select has no values beneath it, the next level does not appear.
+
+The same fields appear in the task info panel, where you can edit them after the task is created. When you change a value at one level, the levels below it reset, so the selections always stay consistent. For example, if you change Category Type, you choose the Sub-Category Type again.
+
+**Required fields**
+
+You can mark a cascading field as required. Required means every applicable level must be filled in. A level that does not exist for your selection, because the chosen value has no values beneath it, does not need to be filled and is treated as blank. Required fields appear directly in the task creation form, so you don't need to open anything to find them.
+
+**What appears in different situations**
+
+| Situation | What appears on the task |
+| :-- | :-- |
+| Only Level 1 is named | Level 1 only |
+| Two levels are named | Level 1 and Level 2 |
+| Three levels are named, and the selected value has no values beneath it | The next level does not appear, and its value is treated as blank |
+| Values nest deeper than the number of named levels | Only the named levels appear |
+| A parent value has no values beneath it | No additional level appears |
+
+### Custom fields and existing tasks
+
+A custom field applies only to tasks created after the field is added. Existing tasks in the project do not gain the field, and you cannot edit them to include it. If you need a field on tasks that already exist, create new tasks after adding the field.
+
+## FAQ
+
+**Who can add or change custom fields?**
+
+Only team admins. Custom fields appear in a project's Settings only for team admins.
+
+**I created the project. Can I manage its custom fields?**
+
+Not unless you are also an admin of the team. Anyone on a team can create a project, but only team admins see Custom fields in Project Settings.
+
+**Will a new custom field appear on tasks that already exist?**
+
+No. A field applies only to tasks created after you add it, and existing tasks cannot be edited to include it.
+
+**Are custom fields shared across projects?**
+
+No. Each project has its own custom fields, set up in that project's Settings.
+
+**How many levels can a Cascading Single Select field have?**
+
+Up to three. Level 1 is required. Levels 2 and 3 are optional.
+
+**In a Cascading Single Select field, do my values need to match the number of levels I named?**
+
+No. If your values nest deeper than the levels you named, only the named levels appear when someone fills in a task.
+
+**In a Cascading Single Select field, what happens to the lower levels if I change a higher-level value on a task?**
+
+The levels below reset, so you choose them again. This keeps the selections consistent.
+
+**If a Cascading Single Select field is required, do I have to fill in every level?**
+
+You have to fill in every level that applies. If your selection has no values beneath it, the next level does not appear and does not need to be filled in.
+
+**Can guests set up custom fields?**
+
+No. Guests cannot create projects or become team admins, and only team admins see Custom fields in Project Settings.
+
+## Troubleshooting
+
+**I don't see Custom fields in Project Settings.**
+
+Only team admins see this option. Ask an admin of the team to open the project's Settings and set up the field.
+
+**I added a field, but it doesn't appear on an older task.**
+
+Custom fields apply only to tasks created after the field is added. Create a new task to see the field.
+
+**Only the first level appears on my Cascading Single Select field.**
+
+This is expected. A Cascading Single Select shows only its first level at the start. Select a value, and the next level appears.
+
+**A level doesn't appear after I select a value in a Cascading Single Select field.**
+
+Check whether the value you selected has values beneath it in the editor. If it has none, no further level appears. Also check how many level names you configured, because only named levels appear.
+
+**I can't remove the bullet in the Cascading Single Select values editor.**
+
+Bullets are always on in this editor. Press Tab to indent a value under the one above it, or Shift+Tab to move it back out.
+
+**I can't add a fourth level to a Cascading Single Select field.**
+
+A Cascading Single Select supports up to three levels, both for level names and for nested values.

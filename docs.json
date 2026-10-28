@@ -1,0 +1,299 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Neo Documentation Site",
+  "colors": {
+    "primary": "#3366D4",
+    "light": "#3366D4",
+    "dark": "#3366D4"
+  },
+  "favicon": {
+    "light": "/images/favicon.svg",
+    "dark": "/images/favicon.svg"
+  },
+  "navigation": {
+    "products": [
+      {
+        "product": "Tasket",
+        "tabs": [
+          {
+            "tab": "User Guide",
+            "pages": [
+              "index",
+              {
+                "group": "Organize",
+                "pages": [
+                  "tasket/user-guide/teams"
+                ]
+              },
+              {
+                "group": "Manage",
+                "pages": [
+                  "tasket/user-guide/tasks",
+                  "tasket/user-guide/custom-fields",
+                  "tasket/user-guide/stages",
+                  "tasket/user-guide/sprints",
+                  "tasket/user-guide/lists",
+                  "tasket/user-guide/multi-tab-workspace",
+                  "tasket/user-guide/work-updates-and-from-me"
+                ]
+              },
+              {
+                "group": "Report",
+                "pages": [
+                  "tasket/user-guide/insights"
+                ]
+              }
+            ],
+            "icon": "book-open"
+          },
+          {
+            "tab": "Admin Guide",
+            "groups": [
+              {
+                "group": "Organization Settings",
+                "pages": [
+                  "tasket/admin-guide/organization-settings"
+                ]
+              },
+              {
+                "group": "User Management",
+                "pages": [
+                  "tasket/admin-guide/user-management"
+                ]
+              },
+              {
+                "group": "Permissions",
+                "pages": [
+                  "tasket/admin-guide/permissions"
+                ]
+              }
+            ],
+            "icon": "shield-check"
+          },
+          {
+            "tab": "Developer Guide",
+            "icon": "code",
+            "groups": [
+              {
+                "group": "Developer Guide",
+                "pages": [
+                  "tasket/developer-guide"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Reference",
+            "groups": [
+              {
+                "group": "API Reference",
+                "pages": [
+                  "tasket/api-reference"
+                ]
+              }
+            ],
+            "icon": "braces"
+          },
+          {
+            "tab": "MCP Reference",
+            "groups": [
+              {
+                "group": "MCP Reference",
+                "pages": [
+                  "tasket/mcp-reference"
+                ]
+              }
+            ],
+            "icon": "plug"
+          }
+        ]
+      },
+      {
+        "product": "Studio",
+        "tabs": [
+          {
+            "tab": "User Guide",
+            "pages": [
+              "studio/user-guide",
+              "studio/user-guide/pages",
+              "studio/user-guide/docx",
+              "studio/user-guide/spreadsheets"
+            ],
+            "icon": "book-open"
+          },
+          {
+            "tab": "Admin Guide",
+            "groups": [
+              {
+                "group": "Administration",
+                "pages": [
+                  "studio/admin-guide"
+                ]
+              }
+            ],
+            "icon": "shield-check"
+          },
+          {
+            "tab": "Developer Guide",
+            "groups": [
+              {
+                "group": "Developer Guide",
+                "pages": [
+                  "studio/analytics",
+                  "developer-guide-2"
+                ]
+              }
+            ],
+            "icon": "chart-column"
+          },
+          {
+            "tab": "API Reference",
+            "groups": [
+              {
+                "group": "API Reference",
+                "pages": [
+                  "studio/api-reference"
+                ]
+              }
+            ],
+            "icon": "braces"
+          },
+          {
+            "tab": "MCP Reference",
+            "groups": [
+              {
+                "group": "MCP Reference",
+                "pages": [
+                  "studio/mcp-reference"
+                ]
+              }
+            ],
+            "icon": "plug"
+          }
+        ]
+      },
+      {
+        "product": "Friday",
+        "tabs": [
+          {
+            "tab": "User Guide",
+            "pages": [
+              "friday/user-guide",
+              "friday/user-guide/ai-sessions",
+              "friday/user-guide/skills",
+              "friday/user-guide/connectors"
+            ],
+            "icon": "book-open"
+          },
+          {
+            "tab": "Admin Guide",
+            "groups": [
+              {
+                "group": "Administration",
+                "pages": [
+                  "friday/admin-guide"
+                ]
+              }
+            ],
+            "icon": "shield-check"
+          },
+          {
+            "tab": "Developer Guide",
+            "icon": "code",
+            "groups": [
+              {
+                "group": "Developer Guide",
+                "pages": [
+                  "developer-guide"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "API Reference",
+            "groups": [
+              {
+                "group": "API Reference",
+                "pages": [
+                  "friday/api-reference"
+                ]
+              }
+            ],
+            "icon": "braces"
+          },
+          {
+            "tab": "MCP Reference",
+            "groups": [
+              {
+                "group": "MCP Reference",
+                "pages": [
+                  "friday/mcp-reference"
+                ]
+              }
+            ],
+            "icon": "plug"
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/images/neo-logo-light.svg",
+    "dark": "/images/neo-logo-light.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "href": "/",
+        "label": "Tasket",
+        "icon": "square-check-big"
+      },
+      {
+        "href": "/friday/user-guide",
+        "label": "Friday",
+        "icon": "sparkles"
+      },
+      {
+        "icon": "file-text",
+        "href": "/studio/user-guide",
+        "label": "Studio"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Open Neo",
+      "href": "https://app.neo.work/"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/neoworkos",
+      "linkedin": "https://www.linkedin.com/company/neoworkos"
+    }
+  },
+  "appearance": {
+    "strict": true,
+    "default": "light"
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "errors": {
+    "404": {
+      "redirect": true
+    }
+  }
+}

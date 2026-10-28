@@ -1,0 +1,1428 @@
+/* Theme color tokens. These follow the colors in docs.json, so never type a hex color below:
+   --primary (colors.primary) in light mode and --primary-light (colors.light) in dark mode.
+   The values after the comma are fallbacks only. */
+:root {
+  --neo-accent: var(--primary, 51 102 212);
+  --neo-accent-text: color-mix(in srgb, rgb(var(--neo-accent)) 70%, black);
+}
+
+html.dark {
+  --neo-accent: var(--primary-light, 51 102 212);
+  --neo-accent-text: color-mix(in srgb, rgb(var(--neo-accent)) 45%, white);
+}
+
+/* Corner radius tokens. Mintlify styles cards, callouts, code blocks, buttons, inputs,
+   the search bar and menus with Tailwind rounded-* classes, so the rules below remap
+   those classes to these tokens and the change applies site-wide.
+   --neo-radius-scale is the single knob: 1 = Mintlify default, lower = sharper corners.
+   Pill shapes (rounded-full) are intentionally left untouched. */
+:root {
+  --neo-radius-scale: 0.6;
+  --neo-radius-sm: calc(0.125rem * var(--neo-radius-scale));
+  --neo-radius: calc(0.25rem * var(--neo-radius-scale));
+  --neo-radius-md: calc(0.375rem * var(--neo-radius-scale));
+  --neo-radius-lg: calc(0.5rem * var(--neo-radius-scale));
+  --neo-radius-xl: calc(0.75rem * var(--neo-radius-scale));
+  --neo-radius-2xl: calc(1rem * var(--neo-radius-scale));
+  --neo-radius-3xl: calc(1.5rem * var(--neo-radius-scale));
+}
+
+.rounded-sm { border-radius: var(--neo-radius-sm) !important; }
+.rounded { border-radius: var(--neo-radius) !important; }
+.rounded-md { border-radius: var(--neo-radius-md) !important; }
+.rounded-lg { border-radius: var(--neo-radius-lg) !important; }
+.rounded-xl { border-radius: var(--neo-radius-xl) !important; }
+.rounded-2xl { border-radius: var(--neo-radius-2xl) !important; }
+.rounded-3xl { border-radius: var(--neo-radius-3xl) !important; }
+
+/* Single-side and single-corner variants (rounded-t-*, rounded-tl-*, ...) */
+.rounded-t-lg, .rounded-l-lg, .rounded-tl-lg { border-top-left-radius: var(--neo-radius-lg) !important; }
+.rounded-t-lg, .rounded-r-lg, .rounded-tr-lg { border-top-right-radius: var(--neo-radius-lg) !important; }
+.rounded-b-lg, .rounded-r-lg, .rounded-br-lg { border-bottom-right-radius: var(--neo-radius-lg) !important; }
+.rounded-b-lg, .rounded-l-lg, .rounded-bl-lg { border-bottom-left-radius: var(--neo-radius-lg) !important; }
+
+.rounded-t-xl, .rounded-l-xl, .rounded-tl-xl { border-top-left-radius: var(--neo-radius-xl) !important; }
+.rounded-t-xl, .rounded-r-xl, .rounded-tr-xl { border-top-right-radius: var(--neo-radius-xl) !important; }
+.rounded-b-xl, .rounded-r-xl, .rounded-br-xl { border-bottom-right-radius: var(--neo-radius-xl) !important; }
+.rounded-b-xl, .rounded-l-xl, .rounded-bl-xl { border-bottom-left-radius: var(--neo-radius-xl) !important; }
+
+.rounded-t-2xl, .rounded-l-2xl, .rounded-tl-2xl { border-top-left-radius: var(--neo-radius-2xl) !important; }
+.rounded-t-2xl, .rounded-r-2xl, .rounded-tr-2xl { border-top-right-radius: var(--neo-radius-2xl) !important; }
+.rounded-b-2xl, .rounded-r-2xl, .rounded-br-2xl { border-bottom-right-radius: var(--neo-radius-2xl) !important; }
+.rounded-b-2xl, .rounded-l-2xl, .rounded-bl-2xl { border-bottom-left-radius: var(--neo-radius-2xl) !important; }
+
+.rounded-t-3xl, .rounded-l-3xl, .rounded-tl-3xl { border-top-left-radius: var(--neo-radius-3xl) !important; }
+.rounded-t-3xl, .rounded-r-3xl, .rounded-tr-3xl { border-top-right-radius: var(--neo-radius-3xl) !important; }
+.rounded-b-3xl, .rounded-r-3xl, .rounded-br-3xl { border-bottom-right-radius: var(--neo-radius-3xl) !important; }
+.rounded-b-3xl, .rounded-l-3xl, .rounded-bl-3xl { border-bottom-left-radius: var(--neo-radius-3xl) !important; }
+
+/* Tip callouts: use the theme color instead of Mintlify's default green */
+.callout[data-callout-type="tip"] {
+  border-color: rgb(var(--neo-accent) / 0.25) !important;
+  background-color: rgb(var(--neo-accent) / 0.06) !important;
+}
+
+.callout[data-callout-type="tip"],
+.callout[data-callout-type="tip"] * {
+  color: var(--neo-accent-text) !important;
+}
+
+.callout[data-callout-type="tip"] svg {
+  color: rgb(var(--neo-accent)) !important;
+}
+
+.callout[data-callout-type="tip"] a {
+  border-color: currentColor !important;
+  text-decoration-color: currentColor !important;
+}
+
+/* Product switcher dropdown items in a row (only visible if the dropdown is ever opened) */
+#nav-dropdown-products-selector-content,
+[id^="nav-dropdown-products-selector-content"],
+.nav-dropdown-products-selector-content {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.25rem;
+  width: auto !important;
+  min-width: fit-content !important;
+  max-width: none !important;
+  padding: 0.375rem !important;
+}
+
+.nav-dropdown-products-selector-item,
+[id^="nav-dropdown-products-selector-item"] {
+  display: inline-flex !important;
+  align-items: center;
+  width: auto !important;
+  white-space: nowrap;
+  padding: 0.375rem 0.875rem !important;
+  border-radius: 9999px;
+}
+
+.nav-dropdown-products-selector-item-description,
+.nav-dropdown-products-selector-item-icon {
+  display: none !important;
+}
+
+.nav-dropdown-products-selector-item-title {
+  font-weight: 500;
+}
+
+.nav-dropdown-products-selector-item[data-active],
+.nav-dropdown-item[data-active] {
+  background-color: rgb(var(--neo-accent) / 0.12);
+  color: rgb(var(--neo-accent));
+}
+
+/* Hide the product dropdown button; products are shown as navbar links instead */
+#nav-dropdown-products-selector-trigger,
+[id^="nav-dropdown-products-selector-trigger"],
+.nav-dropdown-products-selector-trigger {
+  display: none !important;
+}
+
+/* Primary navigation tokens (folder-tab product switcher + tinted tabs band).
+   --neo-nav-tint: opaque light-blue fill shared by the active product tab and the row 2 band.
+   --neo-nav-tint-top: lighter/stronger top of the active product tab gradient.
+   --neo-nav-line: light-blue border around the active product tab and above/below row 2.
+   --neo-tab-radius: corner radius of the active product tab and its flared bottom corners. */
+:root {
+  /* Exact brand tint requested for the tab fill and row 2 band (light mode) */
+  --neo-nav-tint: #ECF3FA;
+  --neo-nav-tint-top: color-mix(in srgb, rgb(var(--neo-accent)) 13%, white);
+  /* Exact line color requested for the tab border, flares and row 2 top line (light mode) */
+  --neo-nav-line: #C9E8F7;
+  /* Glow color of the active product tab (#70D0FF as RGB channels) */
+  --neo-tab-glow-rgb: 112 208 255;
+  --neo-tab-radius: 0.5rem;
+}
+
+html.dark {
+  --neo-nav-tint: color-mix(in srgb, rgb(var(--neo-accent)) 10%, rgb(17 17 19));
+  --neo-nav-tint-top: color-mix(in srgb, rgb(var(--neo-accent)) 20%, rgb(17 17 19));
+  --neo-nav-line: color-mix(in srgb, rgb(var(--neo-accent)) 40%, rgb(17 17 19));
+}
+
+/* Friday: purple tint for the active tab, row 2 band and page background (light mode) */
+html:not(.dark)[data-current-path^="/friday/"] {
+  --neo-nav-tint: #F6EEF8;
+  /* Glow #C8A0E2; border fades from #C8A0E2 to #F0E8F5 */
+  --neo-tab-glow-rgb: 200 160 226;
+  --neo-nav-line: #F0E8F5;
+}
+
+/* Studio: mint tint for the active tab, row 2 band and page background (light mode) */
+html:not(.dark)[data-current-path^="/studio/"] {
+  /* Band/page tint is an assumed light mint; adjust if a brand value is provided */
+  --neo-nav-tint: #EEF6F4;
+  /* Glow #A5DCD1; border fades from #A5DCD1 to #E2F0ED */
+  --neo-tab-glow-rgb: 165 220 209;
+  --neo-nav-line: #E2F0ED;
+}
+
+/* Row 1: product links (Tasket, Studio, Friday) with icons */
+#navbar li > a[href="/"]:not(.nav-tabs-item),
+#navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item),
+#navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item) {
+  gap: 0.4rem;
+  font-weight: 500;
+  color: rgb(55 65 81) !important;
+}
+
+html.dark #navbar li > a[href="/"]:not(.nav-tabs-item),
+html.dark #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item),
+html.dark #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item) {
+  color: rgb(209 213 219) !important;
+}
+
+/* Row 1: the current product link. Tasket is the default product for every
+   page that is not under /studio/ or /friday/. */
+html[data-current-path^="/studio/"] #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item),
+html[data-current-path^="/friday/"] #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item),
+html:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li > a[href="/"]:not(.nav-tabs-item) {
+  color: rgb(17 24 39) !important;
+}
+
+html.dark[data-current-path^="/studio/"] #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item),
+html.dark[data-current-path^="/friday/"] #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item),
+html.dark:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li > a[href="/"]:not(.nav-tabs-item) {
+  color: white !important;
+}
+
+/* Desktop: the current product is drawn as a folder tab that drops into the tinted
+   row 2 band, with flared (inverted) bottom corners, as in the design mock.
+   --neo-tab-height: tab height. --neo-tab-drop: how far the tab is pushed down from the
+   logo center so its bottom meets row 2 (half of: row 1 height - tab height, plus 1px). */
+@media (min-width: 1024px) {
+  #navbar {
+    --neo-tab-height: 3.25rem;
+    /* --neo-tab-overlap: how far the tab bottom reaches into row 2. Its flare lines must sit
+       exactly on row 2's top line: raise by 1px if the flares sit below the line, lower if above. */
+    --neo-tab-overlap: 1px;
+    --neo-tab-drop: calc((var(--logo-center) * 2 - var(--neo-tab-height)) / 2 + var(--neo-tab-overlap));
+  }
+
+  /* Every product link (active or not) gets the exact same box: same height, padding,
+     border width, margin and vertical offset. The active state only paints the
+     background and border colors, so clicking a product never shifts any label. */
+  #navbar li > a[href="/"]:not(.nav-tabs-item),
+  #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item),
+  #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item) {
+    position: relative;
+    height: var(--neo-tab-height) !important;
+    padding: 0 1rem !important;
+    padding-bottom: calc(var(--neo-tab-drop) * 2) !important;
+    margin: 0 calc(-0.25rem - 1px) !important;
+    box-sizing: border-box !important;
+    border: 1px solid transparent !important;
+    border-bottom: none !important;
+    font-weight: 500 !important;
+    line-height: 1 !important;
+    transition: none !important;
+  }
+
+  html body #navbar li:has(> a[href="/"]:not(.nav-tabs-item)),
+  html body #navbar li:has(> a[href="/studio/user-guide"]:not(.nav-tabs-item)),
+  html body #navbar li:has(> a[href="/friday/user-guide"]:not(.nav-tabs-item)) {
+    transform: translateY(calc(-50% + var(--neo-tab-drop))) !important;
+  }
+
+  html[data-current-path^="/studio/"] #navbar li:has(> a[href="/studio/user-guide"]:not(.nav-tabs-item)),
+  html[data-current-path^="/friday/"] #navbar li:has(> a[href="/friday/user-guide"]:not(.nav-tabs-item)),
+  html:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li:has(> a[href="/"]:not(.nav-tabs-item)) {
+    z-index: 20;
+  }
+
+  html[data-current-path^="/studio/"] #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item),
+  html[data-current-path^="/friday/"] #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item),
+  html:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li > a[href="/"]:not(.nav-tabs-item) {
+    /* Soft glow at the top center, fading into the tint (padding-box layers).
+       Border (border-box layer): glow color near the top, fading to --neo-nav-line. */
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgb(var(--neo-tab-glow-rgb) / 0.35), rgb(var(--neo-tab-glow-rgb) / 0) 100%) padding-box,
+      linear-gradient(var(--neo-nav-tint), var(--neo-nav-tint)) padding-box,
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgb(var(--neo-tab-glow-rgb)), var(--neo-nav-line) 100%) border-box;
+    border-radius: var(--neo-tab-radius) var(--neo-tab-radius) 0 0 !important;
+    font-weight: 600 !important;
+  }
+
+  html[data-current-path^="/studio/"] #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item) *,
+  html[data-current-path^="/friday/"] #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item) *,
+  html:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li > a[href="/"]:not(.nav-tabs-item) * {
+    font-weight: inherit !important;
+  }
+
+  /* Flared bottom corners that blend the tab into row 2 */
+  html[data-current-path^="/studio/"] #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item)::before,
+  html[data-current-path^="/studio/"] #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item)::after,
+  html[data-current-path^="/friday/"] #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item)::before,
+  html[data-current-path^="/friday/"] #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item)::after,
+  html:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li > a[href="/"]:not(.nav-tabs-item)::before,
+  html:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li > a[href="/"]:not(.nav-tabs-item)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: var(--neo-tab-radius);
+    height: var(--neo-tab-radius);
+    border-bottom: 1px solid var(--neo-nav-line);
+    background: transparent;
+    pointer-events: none;
+  }
+
+  html[data-current-path^="/studio/"] #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item)::before,
+  html[data-current-path^="/friday/"] #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item)::before,
+  html:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li > a[href="/"]:not(.nav-tabs-item)::before {
+    left: calc(-1 * var(--neo-tab-radius));
+    border-right: 1px solid var(--neo-nav-line);
+    border-bottom-right-radius: var(--neo-tab-radius);
+    /* Two tint layers fill the whole corner outside the curve, hiding the stub ends of the
+       tab's side border and of row 2's top line so the three lines read as one stroke. */
+    box-shadow:
+      calc(var(--neo-tab-radius) / 4) calc(var(--neo-tab-radius) / 4) 0 0 var(--neo-nav-tint),
+      calc(var(--neo-tab-radius) / 2) calc(var(--neo-tab-radius) / 2) 0 0 var(--neo-nav-tint);
+  }
+
+  html[data-current-path^="/studio/"] #navbar li > a[href="/studio/user-guide"]:not(.nav-tabs-item)::after,
+  html[data-current-path^="/friday/"] #navbar li > a[href="/friday/user-guide"]:not(.nav-tabs-item)::after,
+  html:not([data-current-path^="/studio/"]):not([data-current-path^="/friday/"]) #navbar li > a[href="/"]:not(.nav-tabs-item)::after {
+    right: calc(-1 * var(--neo-tab-radius));
+    border-left: 1px solid var(--neo-nav-line);
+    border-bottom-left-radius: var(--neo-tab-radius);
+    box-shadow:
+      calc(var(--neo-tab-radius) / -4) calc(var(--neo-tab-radius) / 4) 0 0 var(--neo-nav-tint),
+      calc(var(--neo-tab-radius) / -2) calc(var(--neo-tab-radius) / 2) 0 0 var(--neo-nav-tint);
+  }
+}
+
+/* Row 1: place Tasket, Studio and Friday on the left of the header, right of the Neo logo,
+   vertically centered on the logo.
+   --product-links-left: distance from the left edge (increase if links overlap the logo).
+   --product-links-gap: spacing between the links.
+   --logo-center: distance from the top of the header to the middle of the Neo logo
+     (half of the logo row height). Increase to move links down, decrease to move them up. */
+@media (min-width: 1024px) {
+  #navbar {
+    --product-links-left: 10rem;
+    --product-links-gap: 6.25rem;
+    --logo-center: 2rem;
+  }
+
+  /* The outer navbar container is the positioning reference */
+  #navbar > *:has(a[href="/friday/user-guide"]:not(.nav-tabs-item)) {
+    position: relative !important;
+  }
+
+  #navbar *:has(> li > a[href="/friday/user-guide"]:not(.nav-tabs-item)):not(#navbar > *),
+  #navbar *:has(* > li > a[href="/friday/user-guide"]:not(.nav-tabs-item)):not(#navbar > *):not(.nav-tabs) {
+    position: static !important;
+  }
+
+  #navbar li:has(> a[href="/"]:not(.nav-tabs-item)),
+  #navbar li:has(> a[href="/studio/user-guide"]:not(.nav-tabs-item)),
+  #navbar li:has(> a[href="/friday/user-guide"]:not(.nav-tabs-item)) {
+    position: absolute !important;
+    top: var(--logo-center) !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    display: flex;
+    align-items: center;
+    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  #navbar li:has(> a[href="/"]:not(.nav-tabs-item)) > a,
+  #navbar li:has(> a[href="/studio/user-guide"]:not(.nav-tabs-item)) > a,
+  #navbar li:has(> a[href="/friday/user-guide"]:not(.nav-tabs-item)) > a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  #navbar li:has(> a[href="/"]:not(.nav-tabs-item)) {
+    left: var(--product-links-left);
+  }
+
+  /* Order: Tasket, Friday, Studio */
+  #navbar li:has(> a[href="/friday/user-guide"]:not(.nav-tabs-item)) {
+    left: calc(var(--product-links-left) + var(--product-links-gap));
+  }
+
+  #navbar li:has(> a[href="/studio/user-guide"]:not(.nav-tabs-item)) {
+    left: calc(var(--product-links-left) + var(--product-links-gap) * 2);
+  }
+}
+
+/* Search and Ask Assistant: a flex row that fills the space between the product links
+   (Tasket, Studio, Friday) and the right edge of the header, centered in that space.
+   The search bar grows up to --search-width and shrinks when the window is narrower,
+   so it never overlaps the product links.
+   --search-start: where the free space begins (just after Friday). Increase if it still touches Friday.
+   --search-end: gap kept on the right edge. It equals --search-start so the row stays centered in the header.
+   --search-width: maximum search bar width. */
+@media (min-width: 1024px) {
+  #navbar {
+    --search-width: 27rem;
+    /* Shared height of the search bar and the Ask Assistant button */
+    --neo-header-control-height: 2.25rem;
+    --search-start: calc(var(--product-links-left) + var(--product-links-gap) * 2 + 9rem);
+    --search-end: var(--search-start);
+    /* Minimum width of the search + Ask Assistant row. On narrower windows the row
+       grows to the right (toward Open Neo) instead of squeezing Ask Assistant out of view.
+       Increase if Ask Assistant is still cut off; decrease if the row touches Open Neo. */
+    --neo-search-row-min: 22rem;
+  }
+
+  #navbar *:has(> #search-bar-entry) {
+    position: absolute !important;
+    left: var(--search-start) !important;
+    right: max(0px, min(var(--search-end), calc(100% - var(--search-start) - var(--neo-search-row-min)))) !important;
+    top: var(--logo-center) !important;
+    transform: translateY(-50%) !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem;
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    flex: none !important;
+    z-index: 10;
+  }
+
+  #search-bar-entry {
+    height: var(--neo-header-control-height) !important;
+    min-height: var(--neo-header-control-height) !important;
+    border: 1px solid rgb(0 0 0 / 0.1) !important;
+    border-radius: var(--neo-control-radius) !important;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+    flex: 1 1 var(--search-width) !important;
+    width: auto !important;
+    min-width: 8rem !important;
+    max-width: var(--search-width) !important;
+    margin: 0 !important;
+  }
+
+  /* Safety net: Ask Assistant is always shown on desktop and never shrinks.
+     The search bar shrinks first when space runs out. */
+  #assistant-entry {
+    display: inline-flex !important;
+    align-items: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex: 0 0 auto !important;
+    white-space: nowrap;
+    margin: 0 !important;
+    height: var(--neo-header-control-height) !important;
+    min-height: var(--neo-header-control-height) !important;
+    border-radius: var(--neo-control-radius) !important;
+  }
+}
+
+/* Header bottom border: a bit darker than the theme default (about 5% opacity).
+   --neo-header-border: raise the last number to darken further, lower it to lighten. */
+:root {
+  --neo-header-border: rgb(0 0 0 / 0.08);
+}
+
+html.dark {
+  --neo-header-border: rgb(255 255 255 / 0.08);
+}
+
+*:has(> #navbar)[class*="border-b"],
+#navbar[class*="border-b"],
+#navbar [class*="border-b"]:not(.nav-tabs-item):not(.nav-tabs-item *) {
+  border-bottom-color: var(--neo-header-border) !important;
+}
+
+/* Navbar CTA (Open Neo): hide the trailing chevron icon */
+#topbar-cta-button svg {
+  display: none !important;
+}
+
+/* Navbar CTA: equal padding on both sides now that the chevron is gone.
+   Mintlify gives the button uneven inner padding to make room for the chevron,
+   so all inner spacing is cleared and the padding is set only on the link itself.
+   Works whether #topbar-cta-button is the link or its wrapper. */
+#topbar-cta-button,
+#topbar-cta-button * {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  gap: 0 !important;
+}
+
+a#topbar-cta-button,
+#topbar-cta-button a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Row 2: product tabs (User Guide, Admin Guide, ...) */
+.nav-tabs-item {
+  font-weight: 500;
+  font-size: 0.8125rem !important; /* 13px, slightly smaller than the default 14px */
+  color: rgb(75 85 99);
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Row 2 tab icons (set in docs.json): small, and same color as the tab text */
+.nav-tabs-item svg,
+.nav-tabs-item .tab-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.nav-tabs-item:hover {
+  color: rgb(17 24 39);
+}
+
+html.dark .nav-tabs-item {
+  color: rgb(156 163 175);
+}
+
+html.dark .nav-tabs-item:hover {
+  color: rgb(229 231 235);
+}
+
+/* Active tab: black text with a black underline, medium weight.
+   --neo-tab-active: text + underline color (white in dark mode).
+   Keep this the only active-tab rule so the blue theme color can't come back. */
+html {
+  --neo-tab-active: rgb(17 17 19);
+}
+
+html.dark {
+  --neo-tab-active: rgb(250 250 250);
+}
+
+html body #navbar .nav-tabs-item[data-active],
+html body .nav-tabs-item[data-active] {
+  color: var(--neo-tab-active) !important;
+  font-weight: 500 !important;
+  border-bottom-color: var(--neo-tab-active) !important;
+}
+
+html body .nav-tabs-item[data-active] * {
+  color: var(--neo-tab-active) !important;
+  font-weight: inherit !important;
+}
+
+/* Underline covers bar-element and pseudo-element variants */
+html body .nav-tabs-item[data-active] [class*="bg-primary"],
+html body .nav-tabs-item[data-active]::after,
+html body .nav-tabs-item[data-active]::before {
+  background-color: var(--neo-tab-active) !important;
+}
+
+html body .nav-tabs-item[data-active] [class*="border-primary"] {
+  border-color: var(--neo-tab-active) !important;
+}
+
+/* Row 2 bottom line: match the width of the line under row 1 (logo, search, Open Neo)
+   instead of spanning the full window. The full-width line comes from the navbar
+   background layer, so it is hidden on desktop and redrawn inside the tabs row.
+   --tabs-line-inset: gap on each side; matches row 1's horizontal padding. */
+@media (min-width: 1024px) {
+  #navbar {
+    --tabs-line-inset: 3rem;
+  }
+
+  #navbar > div:first-child:not(:has(a, button, input)) {
+    border-bottom-color: transparent !important;
+  }
+
+  /* Hide row 1's gray bottom line so only the band's light-blue line meets the tab flares */
+  #navbar [class*="border-b"]:not(.nav-tabs-item):not(.nav-tabs-item *) {
+    border-bottom-color: transparent !important;
+  }
+
+  /* Tinted full-width band behind the tabs, with a light-blue line on top
+     (the active product tab sits over it) and a soft line underneath.
+     The band is drawn by a pseudo-element that bleeds past the container padding
+     to both window edges; #navbar clips the overflow so no horizontal scroll appears. */
+  #navbar {
+    overflow-x: clip;
+  }
+
+  #navbar div:has(> .nav-tabs) {
+    position: relative;
+    isolation: isolate;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  #navbar div:has(> .nav-tabs)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    right: -100vw;
+    z-index: -1;
+    pointer-events: none;
+    background-color: var(--neo-nav-tint);
+    box-shadow:
+      inset 0 1px 0 var(--neo-nav-line),
+      inset 0 -1px 0 rgb(107 114 128 / 0.15);
+  }
+
+  html.dark #navbar div:has(> .nav-tabs)::before {
+    box-shadow:
+      inset 0 1px 0 var(--neo-nav-line),
+      inset 0 -1px 0 rgb(209 213 219 / 0.08);
+  }
+}
+
+/* Page background: tint the whole page (sidebar, content, TOC) with the nav tint
+   instead of plain white, so it continues seamlessly below the row 2 band. */
+html,
+body,
+body.bg-background-light,
+html.dark body.dark\:bg-background-dark,
+#sidebar,
+#sidebar-content,
+#table-of-contents {
+  background-color: var(--neo-nav-tint) !important;
+}
+
+/* Layout wrappers around the sidebar and the content card: the theme paints
+   some of them white, which showed as white strips beside the sidebar and
+   around the card. Tint every wrapper between the page and those areas
+   (the header is excluded so row 1 stays white). */
+#__next,
+body > div,
+body div:has(#sidebar):not(#navbar):not(#navbar *),
+body div:has(#content-area):not(#navbar):not(#navbar *):not(#content-area),
+#background-color,
+[id*="background" i]:not(#content-area *),
+div:has(> #sidebar),
+div:has(> #sidebar-content),
+div:has(#sidebar-content):not(:has(#navbar)),
+div:has(#content-area):not(:has(#navbar)):not(#content-area *),
+div:has(#table-of-contents):not(:has(#navbar)):not(#content-area *),
+[class*="bg-background-light"]:has(#content-area),
+[class*="bg-background-light"]:has(#sidebar),
+#content-container,
+#body-content {
+  background-color: var(--neo-nav-tint) !important;
+}
+
+/* Shared control radius: Open Neo (CTA), Search, Ask Assistant and Copy page
+   all use the same corner radius. The content card follows it too. */
+:root {
+  --neo-control-radius: var(--neo-radius-xl);
+  --neo-card-radius: var(--neo-control-radius);
+}
+
+#topbar-cta-button,
+#topbar-cta-button > *,
+#search-bar-entry,
+#navbar #search-bar-entry,
+#assistant-entry,
+#navbar #assistant-entry {
+  border-radius: var(--neo-control-radius) !important;
+}
+
+/* Copy page split button: one rounded outline around both halves, with a
+   single straight divider between "Copy page" and the chevron.
+   The wrapper draws the outline and clips the corners; the halves are square. */
+html body *:has(> #page-context-menu-button) {
+  border: 1px solid rgb(0 0 0 / 0.1) !important;
+  border-radius: var(--neo-control-radius) !important;
+  overflow: hidden !important;
+  gap: 0 !important;
+}
+
+html.dark body *:has(> #page-context-menu-button) {
+  border-color: rgb(255 255 255 / 0.1) !important;
+}
+
+html body *:has(> #page-context-menu-button) > *,
+html body *:has(> #page-context-menu-button) > * * {
+  border-radius: 0 !important;
+}
+
+html body *:has(> #page-context-menu-button) > *,
+html body *:has(> #page-context-menu-button) > * button,
+html body #page-context-menu-button {
+  border: 0 !important;
+  margin: 0 !important;
+}
+
+/* Divider: drawn on the left edge of the second half (the chevron),
+   whatever the DOM order of the two halves is. */
+html body *:has(> #page-context-menu-button) > * + * {
+  border-left: 1px solid rgb(0 0 0 / 0.1) !important;
+}
+
+html.dark body *:has(> #page-context-menu-button) > * + * {
+  border-left-color: rgb(255 255 255 / 0.1) !important;
+}
+
+#content-area {
+  background-color: #ffffff !important;
+  border: 1px solid #E5E5E5 !important;
+  border-radius: var(--neo-card-radius) !important;
+  margin: 10px !important;
+  padding: 2rem 2.5rem !important;
+  box-sizing: border-box !important;
+}
+
+html.dark #content-area {
+  background-color: rgb(17 17 19) !important;
+  border-color: rgb(255 255 255 / 0.08) !important;
+}
+
+@media (max-width: 1023px) {
+  #content-area {
+    padding: 1.25rem !important;
+  }
+}
+
+/* Keep the space around the card to the 10px margin only: remove the
+   theme's top padding and the column gap to the table of contents. */
+@media (min-width: 1024px) {
+  div:has(> #content-area) {
+    padding-top: 0 !important;
+    gap: 0 !important;
+    column-gap: 0 !important;
+  }
+
+  #content-area {
+    margin-top: 10px !important;
+  }
+
+  /* Fixed card: the card stays in place below the header and only its
+     content scrolls. --neo-header-height = row 1 (4rem) + row 2 tabs (3rem). */
+  #content-area {
+    --neo-header-height: 7rem;
+    position: sticky !important;
+    top: calc(var(--neo-header-height) + 10px) !important;
+    height: calc(100vh - var(--neo-header-height) - 20px) !important;
+    max-height: calc(100vh - var(--neo-header-height) - 20px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    margin-bottom: 10px !important;
+  }
+
+  #table-of-contents {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* Keep header row 1 (Neo logo, products, search) white; the row 2 band
+   paints its own tint on top of this. */
+#navbar,
+#navbar > div:first-child {
+  background-color: #ffffff !important;
+}
+
+html.dark #navbar,
+html.dark #navbar > div:first-child {
+  background-color: rgb(17 17 19) !important;
+}
+
+/* Dark mode: the Neo logo file is black, so turn it white on the dark header */
+html.dark #navbar img.nav-logo,
+html.dark #navbar a[href="/"] img[alt*="logo" i] {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Sidebar top fade: the theme paints a white-to-transparent gradient above
+   the first sidebar item. Repaint it with the nav tint so no white patch shows. */
+#sidebar [class*="bg-gradient-to-b"],
+#sidebar [class*="from-background-light"],
+#sidebar-content [class*="bg-gradient-to-b"],
+#sidebar-content [class*="from-background-light"] {
+  background: var(--neo-nav-tint) !important;
+  background-image: none !important;
+}
+
+/* Sidebar selected item: background + border only; text keeps the same
+   color and weight as unselected items. */
+:root {
+  --neo-sidebar-active-bg: #D8E3EF;
+  --neo-sidebar-active-border: #C3D3E6;
+}
+
+html:not(.dark)[data-current-path^="/friday/"] {
+  --neo-sidebar-active-bg: #EBDDF1;
+  --neo-sidebar-active-border: #DCC4E8;
+}
+
+html:not(.dark)[data-current-path^="/studio/"] {
+  --neo-sidebar-active-bg: #D9EDE8;
+  --neo-sidebar-active-border: #BFE2DA;
+}
+
+html.dark {
+  --neo-sidebar-active-bg: rgb(255 255 255 / 0.06);
+  --neo-sidebar-active-border: rgb(255 255 255 / 0.12);
+}
+
+/* Reserve the same 1px border on every sidebar item so selecting or
+   unselecting one doesn't shift its text. */
+#sidebar-content li > a,
+#sidebar-content li > div > a {
+  border: 1px solid transparent !important;
+  border-radius: 0.5rem !important;
+  font-weight: 400 !important;
+}
+
+#sidebar-content li[data-active] > a,
+#sidebar-content li[data-active] > div > a {
+  background-color: var(--neo-sidebar-active-bg) !important;
+  border-color: var(--neo-sidebar-active-border) !important;
+  border-radius: 0.5rem !important;
+  color: rgb(var(--gray-700)) !important;
+  font-weight: 400 !important;
+}
+
+html.dark #sidebar-content li[data-active] > a,
+html.dark #sidebar-content li[data-active] > div > a {
+  color: rgb(var(--gray-400)) !important;
+}
+
+#sidebar-content li[data-active] > a *,
+#sidebar-content li[data-active] > div > a * {
+  color: inherit !important;
+  font-weight: inherit !important;
+}
+
+/* Sidebar scrollbar: hidden at rest AND on hover; shown only while scrolling.
+   sidebar-scrollbar.js adds .neo-is-scrolling to the scrolling element.
+   The theme shows its own scrollbar on hover, so every state (incl. :hover)
+   is overridden here with high specificity, on the sidebar, its children,
+   and its wrapper (in case the wrapper is the element that scrolls). */
+html body #sidebar,
+html body #sidebar *,
+html body #sidebar:hover,
+html body #sidebar *:hover,
+html body div:has(> #sidebar),
+html body div:has(> #sidebar):hover,
+html body div:has(> #sidebar-content),
+html body div:has(> #sidebar-content):hover {
+  scrollbar-width: thin !important;
+  scrollbar-color: transparent transparent !important;
+}
+
+html body #sidebar::-webkit-scrollbar,
+html body #sidebar *::-webkit-scrollbar,
+html body div:has(> #sidebar)::-webkit-scrollbar,
+html body div:has(> #sidebar-content)::-webkit-scrollbar {
+  width: 6px !important;
+  background: transparent !important;
+}
+
+html body #sidebar::-webkit-scrollbar-thumb,
+html body #sidebar *::-webkit-scrollbar-thumb,
+html body #sidebar:hover::-webkit-scrollbar-thumb,
+html body #sidebar *:hover::-webkit-scrollbar-thumb,
+html body div:has(> #sidebar)::-webkit-scrollbar-thumb,
+html body div:has(> #sidebar):hover::-webkit-scrollbar-thumb,
+html body div:has(> #sidebar-content)::-webkit-scrollbar-thumb,
+html body div:has(> #sidebar-content):hover::-webkit-scrollbar-thumb {
+  background: transparent !important;
+  border-radius: 999px !important;
+}
+
+html body #sidebar::-webkit-scrollbar-track,
+html body #sidebar *::-webkit-scrollbar-track,
+html body div:has(> #sidebar)::-webkit-scrollbar-track,
+html body div:has(> #sidebar-content)::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* While scrolling: show a thin thumb */
+html body .neo-is-scrolling,
+html body .neo-is-scrolling:hover {
+  scrollbar-color: rgb(0 0 0 / 0.25) transparent !important;
+}
+
+html body .neo-is-scrolling::-webkit-scrollbar-thumb,
+html body .neo-is-scrolling:hover::-webkit-scrollbar-thumb {
+  background: rgb(0 0 0 / 0.25) !important;
+}
+
+html.dark body .neo-is-scrolling,
+html.dark body .neo-is-scrolling:hover {
+  scrollbar-color: rgb(255 255 255 / 0.25) transparent !important;
+}
+
+html.dark body .neo-is-scrolling::-webkit-scrollbar-thumb,
+html.dark body .neo-is-scrolling:hover::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.25) !important;
+}
+
+/* ===== Heading sizes: page title and section headings ~20% smaller ===== */
+#page-title,
+h1#page-title {
+  font-size: 1.5rem !important; /* was 1.875rem */
+  line-height: 2rem !important;
+}
+
+#content-area .mdx-content h2,
+#content-area #content h2 {
+  font-size: 1.2rem !important; /* was 1.5rem */
+  line-height: 1.75rem !important;
+}
+
+/* ===== Table of contents ("On this page"): active items in black, not link-blue ===== */
+#table-of-contents .toc-item[data-active],
+#table-of-contents .toc-item[data-active] > a,
+#table-of-contents toc-item[data-active],
+#table-of-contents toc-item[data-active] > a,
+#table-of-contents li[data-active],
+#table-of-contents li[data-active] > a,
+#table-of-contents a[class*="text-primary"] {
+  color: rgb(17 17 19) !important;
+  font-weight: 500 !important;
+}
+
+#table-of-contents [class*="border-primary"] {
+  border-color: rgb(17 17 19) !important;
+}
+
+html.dark #table-of-contents .toc-item[data-active],
+html.dark #table-of-contents .toc-item[data-active] > a,
+html.dark #table-of-contents toc-item[data-active],
+html.dark #table-of-contents toc-item[data-active] > a,
+html.dark #table-of-contents li[data-active],
+html.dark #table-of-contents li[data-active] > a,
+html.dark #table-of-contents a[class*="text-primary"] {
+  color: #fff !important;
+}
+
+html.dark #table-of-contents [class*="border-primary"] {
+  border-color: #fff !important;
+}
+
+/* ===== Heading copy-link icon: pull it closer to the heading so it
+   doesn't touch the content container edge on hover.
+   Adjust margin-left to move it (Mintlify default is -2.5rem). ===== */
+#content-area a[aria-label="Navigate to header"],
+#content-area h1 > a[href^="#"],
+#content-area h2 > a[href^="#"],
+#content-area h3 > a[href^="#"],
+#content-area h4 > a[href^="#"] {
+  margin-left: -2rem !important;
+}
+
+/* ===== TOC: small chevron before indented (H3+) items so they don't look
+   like they're hanging. Wrapped lines stay aligned with the text.
+   --neo-toc-sub-icon-color: icon color (tweak for more/less contrast). ===== */
+#table-of-contents {
+  --neo-toc-sub-icon-color: rgb(156 163 175);
+}
+
+html.dark #table-of-contents {
+  --neo-toc-sub-icon-color: rgb(107 114 128);
+}
+
+#table-of-contents .toc-item[data-depth]:not([data-depth="0"]) > a,
+#table-of-contents toc-item[data-depth]:not([data-depth="0"]) > a {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+#table-of-contents .toc-item[data-depth]:not([data-depth="0"]) > a::before,
+#table-of-contents toc-item[data-depth]:not([data-depth="0"]) > a::before {
+  content: "";
+  flex-shrink: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.3em;
+  background-color: var(--neo-toc-sub-icon-color);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Active indented item: icon matches the active text color */
+#table-of-contents [data-depth]:not([data-depth="0"])[data-active] > a::before {
+  background-color: currentColor;
+}
+
+/* ===== Smooth anchor scrolling (see toc-smooth-scroll.js) ===== */
+html,
+#content-area {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  #content-area {
+    scroll-behavior: auto;
+  }
+}
+
+/* ===== Page eyebrow (group name above the page title): grey, not link-blue ===== */
+.eyebrow,
+#header .eyebrow,
+#content-area .eyebrow {
+  color: rgb(107 114 128) !important;
+  font-weight: 400 !important;
+}
+
+html.dark .eyebrow,
+html.dark #header .eyebrow,
+html.dark #content-area .eyebrow {
+  color: rgb(156 163 175) !important;
+}
+
+/* ===== Sidebar accordion (see sidebar-accordion.js) ===== */
+#sidebar .sidebar-group-header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.875rem !important; /* was 1rem */
+  line-height: 1.25rem !important;
+  margin-bottom: 0.375rem !important;
+}
+
+/* ===== Sidebar spacing: tighter vertical rhythm =====
+   --neo-sidebar-item-py: top/bottom padding inside each nav item (lower = tighter rows).
+   --neo-sidebar-group-gap: space above each group heading (Organize, Manage, Report). */
+#sidebar {
+  --neo-sidebar-item-py: 0.25rem;
+  --neo-sidebar-group-gap: 1.25rem;
+}
+
+#sidebar-content li > a,
+#sidebar-content li > div > a {
+  padding-top: var(--neo-sidebar-item-py) !important;
+  padding-bottom: var(--neo-sidebar-item-py) !important;
+}
+
+/* No extra gap between items in a list */
+#sidebar-content ul,
+#sidebar-content .sidebar-group {
+  row-gap: 0 !important;
+}
+
+#sidebar-content ul > li + li {
+  margin-top: 0 !important;
+}
+
+/* Space above each group: the wrapper that holds the group heading */
+#sidebar-content div:has(> .sidebar-group-header) {
+  margin-top: var(--neo-sidebar-group-gap) !important;
+}
+
+#sidebar-content div:has(> .sidebar-group-header):first-child {
+  margin-top: 0 !important;
+}
+
+#sidebar .sidebar-group-header * {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+#sidebar .sidebar-group-header::after {
+  content: "";
+  flex: none;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-right: 0.5rem;
+  background-color: currentColor;
+  opacity: 0.6;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#sidebar .sidebar-group-header:hover::after {
+  opacity: 1;
+}
+
+#sidebar .sidebar-group-header.neo-collapsed::after {
+  transform: rotate(-90deg);
+}
+
+/* Collapsed: height 0 instead of display:none so sidebar-accordion.js can animate
+   the height (no !important, so the JS animation can override these mid-animation). */
+#sidebar .neo-group-collapsed {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  visibility: hidden;
+}
+
+/* ===== Disabled tabs (see disabled-tabs.js): Admin Guide, Developer Guide, API Reference, MCP Reference ===== */
+/* Pure CSS, so it works with or without custom JS (including the editor preview).
+   Applies to Tasket and Friday (every page not under /studio/).
+   Disabled tabs: tabs 2 to 5 of row 2 (Admin Guide, Developer Guide, API Reference,
+   MCP Reference). Only User Guide (tab 1) stays active.
+   The tabs are faded with a light text color instead of opacity, because opacity would also
+   fade the tooltip. disabled-tabs.js blocks clicks on them. */
+html:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item,
+  .neo-tab-disabled
+) {
+  position: relative !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  cursor: not-allowed !important;
+  color: rgb(75 85 99 / 0.4) !important;
+}
+
+html.dark:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item,
+  .neo-tab-disabled
+) {
+  color: rgb(156 163 175 / 0.4) !important;
+}
+
+/* No gray hover underline on disabled tabs */
+html:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item,
+  .neo-tab-disabled
+):hover [class*="group-hover"] {
+  background-color: transparent !important;
+}
+
+/* Tooltip on hover: "We're putting this together. Check back soon." just below the disabled tab.
+   The curly apostrophe is written as \2019 so it always renders correctly.
+   ::after = the dark bubble with the text, ::before = the small arrow pointing up.
+   Change the text in the content property below. */
+html:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item
+)::after {
+  content: "We\2019re putting this together. Check back soon." !important;
+  position: absolute !important;
+  top: calc(100% + 6px) !important;
+  bottom: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  z-index: 60 !important;
+  width: max-content !important;
+  height: auto !important;
+  padding: 0.375rem 0.625rem !important;
+  border-radius: var(--neo-control-radius) !important;
+  background: rgb(17 24 39) !important;
+  color: #ffffff !important;
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15) !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(-50%, 4px) !important;
+  transition: opacity 0.12s ease, transform 0.12s ease, visibility 0.12s !important;
+}
+
+html:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item
+)::before {
+  content: "" !important;
+  position: absolute !important;
+  top: calc(100% + 2px) !important;
+  bottom: auto !important;
+  left: 50% !important;
+  right: auto !important;
+  z-index: 61 !important;
+  width: 8px !important;
+  height: 8px !important;
+  border: 0 !important;
+  border-radius: 1px !important;
+  background: rgb(17 24 39) !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(-50%, 4px) rotate(45deg) !important;
+  transition: opacity 0.12s ease, transform 0.12s ease, visibility 0.12s !important;
+}
+
+html:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item
+):hover::after {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(-50%, 0) !important;
+}
+
+html:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item
+):hover::before {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(-50%, 0) rotate(45deg) !important;
+}
+
+/* Dark mode: light bubble with dark text */
+html.dark:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item
+)::after {
+  background: rgb(243 244 246) !important;
+  color: rgb(17 24 39) !important;
+}
+
+html.dark:not([data-current-path^="/studio/"]) :is(
+  .nav-tabs-item[href^="/tasket/admin-guide"],
+  .nav-tabs-item[href="/tasket/api-reference"],
+  .nav-tabs-item[href="/tasket/mcp-reference"],
+  .nav-tabs-item[href^="/friday/admin-guide"],
+  .nav-tabs-item[href="/friday/api-reference"],
+  .nav-tabs-item[href="/friday/mcp-reference"],
+  .nav-tabs-item:nth-child(n+2):nth-child(-n+5),
+  .nav-tabs > :nth-child(n+2):nth-child(-n+5) .nav-tabs-item
+)::before {
+  background: rgb(243 244 246) !important;
+}
+
+/* The tooltip hangs below the tabs row, so the row must not clip it (desktop only) */
+@media (min-width: 1024px) {
+  #navbar .nav-tabs,
+  #navbar div:has(> .nav-tabs) {
+    overflow: visible !important;
+  }
+}
+
+/* Wrapper of a disabled tab (if the theme wraps tabs) shows the "not allowed" cursor too */
+html:not([data-current-path^="/studio/"]) .nav-tabs > *:nth-child(n+2):nth-child(-n+5):has(.nav-tabs-item) {
+  cursor: not-allowed !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-tabs-item::before,
+  .nav-tabs-item::after {
+    transition: none !important;
+  }
+}
+
+/* ===== Studio: hide the row 2 tabs (User Guide, Admin Guide, Analytics, ...) =====
+   The tinted band stays so the header height and the folder-tab look are unchanged. */
+html[data-current-path^="/studio/"] .nav-tabs-item,
+html[data-current-path^="/studio/"] .nav-tabs > * {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ===== Studio "coming soon" overlay =====
+   Any page under /studio/ gets a frosted white layer over the page with a message.
+   The header stays above the layer so readers can switch back to Tasket or Friday.
+   html::after = frosted layer, body::before = icon + headline, body::after = subtext. */
+html[data-current-path^="/studio/"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: var(--neo-nav-tint, #EEF6F4);
+  pointer-events: auto;
+}
+
+html[data-current-path^="/studio/"] #navbar {
+  z-index: 50 !important;
+}
+
+html[data-current-path^="/studio/"] body {
+  overflow: hidden !important;
+}
+
+html[data-current-path^="/studio/"] body::before,
+html[data-current-path^="/studio/"] body::after {
+  position: fixed;
+  left: 50%;
+  z-index: 46;
+  width: min(32rem, calc(100vw - 3rem));
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: pre-line;
+  pointer-events: none;
+}
+
+/* Icon: Lucide "file-text" (Studio's product icon), drawn as a mask so it takes the gray color. */
+html[data-current-path^="/studio/"] body::before {
+  content: "";
+  top: calc(50% - 3rem);
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgb(170 172 178);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/%3E%3Cpath d='M14 2v4a2 2 0 0 0 2 2h4'/%3E%3Cpath d='M10 9H8'/%3E%3Cpath d='M16 13H8'/%3E%3Cpath d='M16 17H8'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z'/%3E%3Cpath d='M14 2v4a2 2 0 0 0 2 2h4'/%3E%3Cpath d='M10 9H8'/%3E%3Cpath d='M16 13H8'/%3E%3Cpath d='M16 17H8'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+html[data-current-path^="/studio/"] body::after {
+  content: "Studio Documentations are coming soon";
+  top: calc(50% + 0.5rem);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  color: rgb(107 114 128);
+}
+
+html.dark[data-current-path^="/studio/"]::after {
+  background: var(--neo-nav-tint, rgb(17 17 19));
+}
+
+html.dark[data-current-path^="/studio/"] body::before {
+  background-color: rgb(107 114 128);
+}
+
+html.dark[data-current-path^="/studio/"] body::after {
+  color: rgb(156 163 175);
+}
+
+/* Floating "Ask a question" bar.
+   The outer wrapper stays invisible (no extra border, background or bottom space);
+   only the rounded input field gets a soft shadow.
+   Tweak --neo-ask-shadow to make the lift stronger or weaker. */
+:root {
+  --neo-ask-shadow:
+    0 1px 2px rgb(15 23 42 / 0.06),
+    0 4px 12px rgb(15 23 42 / 0.08);
+}
+
+html.dark {
+  --neo-ask-shadow:
+    0 1px 2px rgb(0 0 0 / 0.30),
+    0 4px 12px rgb(0 0 0 / 0.40);
+}
+
+.chat-assistant-floating-input {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: 0 !important;
+}
+
+/* Remove the white fade/backdrop Mintlify paints behind and below the bar. */
+*:has(> .chat-assistant-floating-input),
+*:has(> * > .chat-assistant-floating-input) {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  padding-bottom: 0 !important;
+}
+
+*:has(> .chat-assistant-floating-input)::before,
+*:has(> .chat-assistant-floating-input)::after,
+.chat-assistant-floating-input::before,
+.chat-assistant-floating-input::after {
+  display: none !important;
+}
+
+/* Hide the white gradient fade strip Mintlify renders under the bar
+   (a sibling or ancestor-level element with a gradient background). */
+.chat-assistant-floating-input ~ [class*="gradient"],
+.chat-assistant-floating-input [class*="gradient"],
+*:has(> .chat-assistant-floating-input) > [class*="gradient"],
+*:has(> * > .chat-assistant-floating-input) > [class*="gradient"],
+*:has(> .chat-assistant-floating-input) ~ [class*="gradient"],
+*:has(.chat-assistant-floating-input) > [class*="bg-gradient"],
+*:has(.chat-assistant-floating-input) > [class*="from-background"] {
+  display: none !important;
+}
+
+.chat-assistant-floating-input,
+.chat-assistant-floating-input > *,
+*:has(> .chat-assistant-floating-input) {
+  background-image: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+.chat-assistant-floating-input *:has(> textarea),
+.chat-assistant-floating-input *:has(> #chat-assistant-textarea) {
+  box-shadow: var(--neo-ask-shadow) !important;
+}
+
+/* "Ask a question..." text size (typed text and placeholder), in the floating bar
+   and the assistant panel. Tweak --neo-ask-font-size to adjust. */
+:root {
+  --neo-ask-font-size: 1rem;
+}
+
+#chat-assistant-textarea,
+#chat-assistant-textarea::placeholder,
+.chat-assistant-floating-input textarea,
+.chat-assistant-floating-input textarea::placeholder,
+.chat-assistant-input textarea,
+.chat-assistant-input textarea::placeholder {
+  font-size: var(--neo-ask-font-size) !important;
+  line-height: 1.5 !important;
+}

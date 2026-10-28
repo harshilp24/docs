@@ -1,0 +1,84 @@
+---
+title: "Lists"
+---
+
+## Feature overview
+
+Lists let you save a filtered view of tasks so you can return to the same set of tasks at any time without reapplying filters manually. Instead of rebuilding a complex filter each time, you create a List once and open it whenever you need it.
+
+Lists are available at three levels in Tasket: globally across the workspace, within a specific team, and within a specific project. Each level shows only the Lists that belong to that context.
+
+## When to use Lists
+
+**You check the same set of tasks regularly.** For example, a project manager who reviews all high-priority, overdue tasks every morning can save that filtered view as a List and open it directly each day.
+
+**You want to share a consistent view with your team.** A team lead who needs everyone to look at tasks assigned to a particular person or in a particular status can create a List that captures that filter and refer the team to it.
+
+**You manage work across multiple projects.** When you need to track tasks from several projects together, a List lets you combine project filters into one view without switching between projects manually.
+
+## How to use Lists
+
+### Accessing Lists
+
+Lists are available from the **Lists** tab at the global, team, and project levels.
+
+- At the **global level**, the Lists tab shows saved Lists available across the entire workspace.
+- At the **team level**, the Lists tab shows saved Lists scoped to that team.
+- At the **project level**, the Lists tab shows saved Lists scoped to that project.
+
+Lists appear in the order they were created.
+
+### Creating a List
+
+1. Navigate to the Lists tab at the level where you want to save the List (global, team, or project).
+2. Click **+New**.
+3. Apply the filters you want to save (see Filter options below).
+4. Give the List a name.
+5. Save the List.
+
+The List is now available in the Lists tab for anyone with access to that level.
+
+### Opening a List
+
+Click any saved List in the Lists tab. Tasket reapplies the saved filters and displays all matching tasks.
+
+### Filter options
+
+When creating a List, you can filter by:
+
+| **Filter** | **Type** | **Notes** |
+| :-- | :-- | :-- |
+| Creator | Multi-select | Filter by the user(s) who created the task |
+| Participant | Multi-select | Matches tasks where the user is an Assignee or a Watcher |
+| Project | Multi-select | Within a single project, filters use AND logic. Across multiple projects, each project uses AND logic internally, and results are combined with OR logic |
+| Status | Multi-select | Filter by one or more task statuses |
+| Last commented | Single-select | Filter by when the task was last commented on |
+| Priority | Custom field (system) | Filter by task priority |
+| Due Date | Custom field (system) | Filter by task due date |
+| Other custom fields | Custom field | Any additional custom fields defined in your workspace |
+
+## FAQ
+
+**Where do Lists appear?**<br />Lists appear under the Lists tab at the global, team, or project level depending on where they were created.
+
+**Who can see a List?**<br />A List is visible to users who have access to the level (global, team, or project) where it was saved.
+
+**What happens when I open a List?**<br />Tasket reapplies the saved filters and shows all tasks that currently match those filters. The results reflect the current state of tasks, not a snapshot from when the List was created.
+
+**Can I apply multiple projects in one List?**<br />Yes. When you select multiple projects, the filter returns tasks that match the applied conditions within each project. Results from all selected projects are combined into a single view.
+
+**Who is considered a Participant?**<br />A Participant is any user who is either an Assignee or a Watcher on a task.
+
+**Can I reorder Lists?**<br />Not currently. Lists appear in the order they were created.
+
+**Can I search or filter the list of saved Lists?**<br />Not currently. All Lists at a given level are shown together in creation order.
+
+## Troubleshooting
+
+**A filter in a saved List references a custom field that no longer appears.**<br />The custom field may have been deleted from the workspace. When a saved filter references a deleted custom field, that filter condition can no longer be applied. Review the List's filters and remove or replace the deleted field.
+
+**A saved List filter no longer produces valid results for a custom field.**<br />If a custom field's type has changed since the List was created, the stored filter operator or value may no longer be compatible with the field. Edit the List and update the filter for that field to match its current type.
+
+**A saved List references a user, project, team, or status that no longer exists.**<br />If an entity referenced in a filter has been deleted or renamed, the filter condition for that entity may return no results or behave unexpectedly. Review the List's filters and update or remove the affected conditions.
+
+**A List I previously accessed is no longer visible.**<br />You may have lost access to the team or project where the List exists. Contact your workspace admin to verify your access permissions.

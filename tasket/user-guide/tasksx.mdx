@@ -1,0 +1,254 @@
+---
+title: "Tasks "
+sidebarTitle: "Tasks"
+---
+
+## Feature overview
+
+Task lets you capture work and direct it to the right place. New Task supports three creation paths: P2P for work between people without a project, Project for planned work inside a project, and Service Desk for requests handled by a designated service team.
+
+A single creation panel lets you enter a title, provide context, and add relevant participants. The available fields and who can assign the work depend on the type you choose. Project work stays with its project. Service Desk requests enter a shared queue where staff can triage them.
+
+<table>
+  <colgroup>
+    <col width="155" />
+    <col width="231" />
+    <col width="169" />
+    <col width="263" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Choose</th>
+      <th>Best for</th>
+      <th>Assignment at creation</th>
+      <th>Where the task goes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>P2P</td>
+      <td>Direct follow-ups or work not yet tied to a project</td>
+      <td>Optional assignees</td>
+      <td>From Me for the creator</td>
+    </tr>
+    <tr>
+      <td>Project</td>
+      <td>Work the team plans and tracks in a specific project</td>
+      <td>Optional assignees</td>
+      <td>Project Open tab</td>
+    </tr>
+    <tr>
+      <td>Service Desk</td>
+      <td>Requests to functions such as IT or HR</td>
+      <td>No assignee field. Staff assign later</td>
+      <td>Service Desk Open tab</td>
+    </tr>
+  </tbody>
+</table>
+
+#### When to use
+
+##### 1. Capture a follow-up before choosing a project
+
+A colleague needs a follow-up after a meeting, but the work is not part of an established project. Create a P2P task, optionally add the colleague as an assignee, and keep the work visible without first choosing a project. You can associate the task with a project later.
+
+##### 2. Coordinate a planned deliverable
+
+A launch team needs to track review of a release checklist. Create a Project task in the launch project and include the people responsible and those who should follow progress. The task is available in the project’s active work.
+
+##### 3. Request help from an internal service team
+
+An employee needs a laptop issue resolved. They select the IT Service Desk in New Task, describe the issue, and submit it. The request lands in the desk’s queue without an assignee. An Agent or Admin can assign it to a member of staff. The employee can follow their request as it progresses.
+
+##### 4. Capture tasks without a connection
+
+A user records several tasks while travelling with intermittent connectivity. Tasket queues saved tasks locally and syncs them when a connection returns, preserving the creation sequence and handling each task independently.
+
+#### How to use
+
+##### Start a new task
+
+1. Select New Task in Tasket.
+2. Choose P2P, Project, or Service Desk in the type or container picker. Service Desk appears only if you have access to at least one desk.
+3. Enter a Title (required, 1–125 characters after trimming spaces). Special characters and duplicate titles are allowed.
+4. Optionally add a description or initial comment in the rich-text editor. The editor supports long content and a focused writing mode.
+5. Complete the type-specific fields below, then select Save.
+
+##### Create a P2P task
+
+1. Select P2P.
+2. Enter the title and any helpful context.
+3. Optionally add Assignees (people responsible) and Watchers (people following the task).
+4. Select Save without selecting a project.
+
+A P2P task can be saved with only its title. It starts Unassigned if you do not add an assignee. It appears in the creator’s From Me view, not in a project’s Open or Closed tabs.
+
+##### Create a Project task
+
+1. Select Project.
+2. Choose the destination project. Projects appear alphabetically, with their icon, name, and associated team.
+3. Enter a title and optional context.
+4. Optionally choose assignees and watchers. Selecting a project prompts you to choose an assignee, but an assignee is not required to save.
+5. Select Save.
+
+Each task belongs to a maximum of one project. A saved Project task appears in the selected project’s Open tab and is Unassigned if no assignee was added. Before saving, you can remove the selected project to switch back to a standalone P2P task.
+
+##### Create a Service Desk request
+
+1. Select Service Desk from the New Task picker.
+2. Choose a desk you have access to. The picker displays Staff desks first, followed by User desks. Each group is alphabetical.
+3. Enter the request title and a description that explains what you need.
+4. Optionally add watchers. You cannot add an assignee in New Task for a Service Desk request.
+5. Select Save.
+
+The request is created Unassigned in the Service Desk’s Open tab. Desk staff then triage and assign it. The Service Desk option is hidden when no desks are accessible to you. Guests cannot use Service Desks or participate in their tasks.
+
+##### Add and manage participants
+
+For P2P and Project tasks:
+
+- Assignees own the work. Up to 10 can be added.
+- Watchers follow the work without owning it. No maximum is specified.
+- Search for people using the beginning of their first or last name.
+- Use a participant chip to remove a person or switch them between Assignee and Watcher.
+- The same person cannot be both an assignee and a watcher. Assignees implicitly receive watcher visibility.
+- After you add the first assignee, Tasket opens the watcher picker to help you select followers.
+
+For Service Desk tasks, the creator may add watchers during creation, but only desk Staff (Agents or Admins) can be assigned to the request, and assignment happens inside the desk after creation. Guests cannot be assignees or watchers.
+
+##### Find and manage a task after creation
+
+<table>
+  <colgroup>
+    <col width="242" />
+    <col width="471" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Task type</th>
+      <th>View and management</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>P2P</td>
+      <td>The creator can find the task in From Me. Completed or discarded personal tasks remain available through Search or History.</td>
+    </tr>
+    <tr>
+      <td>Project</td>
+      <td>Find active work in the project’s Open tab. Completed or discarded tasks move to Closed.</td>
+    </tr>
+    <tr>
+      <td>Service Desk</td>
+      <td>Requesters can find their own open and closed requests in that desk. Staff work across desk requests in Open and Closed. They also have a Lists tab.</td>
+    </tr>
+  </tbody>
+</table>
+
+An assigned task can appear in the assignee’s Work view. Tasks in which you participate appear in Updates, including Service Desk tasks. The Service Desk does not have Stages, Sprints, or Intakes tabs.
+
+You can edit participants on a regular task from its details. Complete work when finished, discard it when no longer needed, and reopen it when it should return to active work. For a Service Desk task, only its creator or desk Staff can complete, discard, or reopen it. Other watchers and non-staff contributors cannot close it. Requesters can see the assigned staff member but cannot change the assignment.
+
+##### Save when offline
+
+- Saving while offline queues the task locally and shows it with a temporary local ID.
+- Tasks sync automatically in creation order when connectivity returns. Each task syncs independently.
+- The local queue remains across browser-tab closes and browser restarts.
+- The server replaces the temporary ID with the permanent task ID after successful sync.
+- Offline project, people, and Service Desk lists rely on local cache and may be outdated. A newly added user or desk may not be available until you reconnect.
+- If desk access has been revoked before an offline request syncs, that request cannot be saved to the server. It remains pending locally with an error.
+
+##### Permissions and limits
+
+<table>
+  <colgroup>
+    <col width="306" />
+    <col width="417" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Task title</td>
+      <td>Required. 1–125 characters after trimming leading/trailing whitespace</td>
+    </tr>
+    <tr>
+      <td>P2P creation</td>
+      <td>Available to users with access to Tasket</td>
+    </tr>
+    <tr>
+      <td>Project creation</td>
+      <td>Requires access to the selected project’s task-creation flow</td>
+    </tr>
+    <tr>
+      <td>Service Desk creation</td>
+      <td>Requires task-creation permission for that desk, or a Staff role on that desk. Desk access is determined by its settings</td>
+    </tr>
+    <tr>
+      <td>P2P / Project assignees</td>
+      <td>Optional, maximum 10</td>
+    </tr>
+    <tr>
+      <td>P2P / Project watchers</td>
+      <td>Optional, no specified maximum</td>
+    </tr>
+    <tr>
+      <td>Service Desk assignees</td>
+      <td>Staff only, not selectable from New Task</td>
+    </tr>
+    <tr>
+      <td>Service Desk participants</td>
+      <td>Org members only. Guests are not supported</td>
+    </tr>
+    <tr>
+      <td>Project association</td>
+      <td>Maximum one project per Project task</td>
+    </tr>
+  </tbody>
+</table>
+
+Service Desk creation access is configured as Anyone in Org or Specific Users. Only an Org Admin can create a new Service Desk. That is separate from permission to submit a request to an existing desk.
+
+#### FAQ
+
+How is a Service Desk request different from a Project task?
+
+A Project task is planned work associated with a project. A Service Desk request is work submitted to a service function for staff to triage and resolve. Requests enter the desk unassigned, and only desk staff can be assigned to them.
+
+Is Intake still a New Task option?
+
+The new container picker is specified as P2P, Project, Service Desk. The Service Desk PRD describes the desk as the request-handling model and specifies that Service Desks have no Intakes tab. It does not establish whether existing project intakes are migrated or removed elsewhere in the product.
+
+Why don’t I see Service Desk when creating a task?
+
+The option is hidden when you have access to no Service Desks. Ask a Service Desk Admin whether you should be included in Who can create tasks. Guests are not eligible.
+
+Can I assign a Service Desk request to a specific agent when submitting it?
+
+No. You can add watchers, but the assignee field is hidden in New Task for a Service Desk request. Staff makes the assignment in the desk.
+
+Can a watcher close a Service Desk request?
+
+No. Only the task’s creator or desk Staff can complete or discard it.
+
+What happens if I leave New Task with unsaved changes?
+
+If you’ve entered data, the specification requires a prompt to save or discard your changes. Leaving an empty form discards it without creating a task.
+
+#### Troubleshooting
+
+A newly added project, person, or Service Desk isn’t available while offline
+
+Offline pickers use cached data. Reconnect to refresh your available destinations and participants.
+
+A saved Service Desk request fails to sync after access changes
+
+If your permission to submit to the desk was revoked before sync, the pending offline request cannot be saved. Check with the desk administrator to restore access or choose an accessible destination.
+
+An offline task fails to sync because a participant is no longer active
+
+The local user list may be stale. Reconnect and remove or replace the inactive person before saving again.
